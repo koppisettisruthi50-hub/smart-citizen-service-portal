@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FAQ - Smart Citizen Service Portal</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- Header -->
+    <header>
+        <div class="logo">
+            <h1>Smart Citizen Service Portal</h1>
+        </div>
+
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="certificates.html">Certificates</a></li>
+                <li><a href="schemes.html">Schemes</a></li>
+                <li><a href="faq.html">FAQ</a></li>
+                <li><a href="about.html">about</a></li>
+                <li><a href="contact.html">contact</a></li>
+            </ul>
+        </nav>
+        <button id="theme-toggle">🌙</button>
+    </header>
+
+    <!-- FAQ Section -->
+    <section class="services">
+        <h2>Frequently Asked Questions</h2>
+
+        <div class="service-container">
+
+            <div class="service-card">
+                <h3>1. Which documents are needed for income certificate?</h3>
+                <p>
+                    Aadhaar Card, Ration Card, Passport Size Photos,
+                    Address Proof.
+                </p>
+            </div>
+
+            <div class="service-card">
+                <h3>2. Is there any fee for applying certificates?</h3>
+                <p>
+                    It is based on the certificate type.
+                for ex Income Certificate  ₹35 fee.
+                </p>
+            </div>
+
+            <div class="service-card">
+                <h3>3.Is Pension schemes allows online application?</h3>
+                <p>
+                    Yes. We can apply in local meeseva or sachavalayam
+                    or through  online service protal
+                </p>
+            </div>
+
+            <div class="service-card">
+                <h3>4.  How many Xerox copies are needed ?</h3>
+                <p>
+                    Usually 2 copies is better.
+                    It changes frequently based on service.
+                </p>
+            </div>
+
+
+
+            <div class="service-card">
+                <h3>5. Is information will be update or not?</h3>
+                <p>
+                    Yes it will be updated.
+                </p>
+            </div>
+            <div class="service-card">
+                <h3>6.How many days it takes to process documents?</h3>
+                <p>
+                    5-15 working days
+                </p>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>© 2026 Smart Citizen Service Portal. All Rights Reserved.</p>
+    </footer>
+    <script>
+        const toggleBtn = document.getElementById("theme-toggle");
+
+toggleBtn.addEventListener("click", () => {
+    document.body.classList.toggle("dark-mode");
+
+    if (document.body.classList.contains("dark-mode")) {
+        localStorage.setItem("theme", "dark");
+        toggleBtn.textContent = "☀️";
+    } else {
+        localStorage.setItem("theme", "light");
+        toggleBtn.textContent = "🌙";
+    }
+});
+
+// Save user preference
+if (localStorage.getItem("theme") === "dark") {
+    document.body.classList.add("dark-mode");
+    toggleBtn.textContent = "☀️";
+}
+    </script>
+</body>
+</html>

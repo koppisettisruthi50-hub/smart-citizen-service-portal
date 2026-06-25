@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About - Smart Citizen Service Portal</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- Header -->
+    <header>
+        <div class="logo">
+            <h1>Smart Citizen Service Portal</h1>
+        </div>
+
+        <nav>
+            <ul>
+                <li><a href="index.html"> Home</a></li>
+                <li><a href="certificates.html"> Certificates</a></li>
+                <li><a href="schemes.html">Schemes</a></li>
+                <li><a href="faq.html"> FAQ</a></li>
+                <li><a href="about.html"> About</a></li>
+                <li><a href="contact.html">contact</a></li>
+            </ul>
+        </nav>
+        <button id="theme-toggle">🌙</button>
+    </header>
+
+    <!-- About Section -->
+    <section class="services">
+        <h2>About the Project</h2>
+
+        <div class="service-card">
+            <h3>Problem Statement</h3>
+            <p>
+                Many citizens do not know which documents are required
+                to apply for government certificates and welfare schemes.
+                Different offices may provide inconsistent information,
+                leading to confusion and multiple visits.
+            </p>
+        </div>
+
+        <div class="service-card">
+            <h3>Our Solution</h3>
+            <p>
+                The Smart Citizen Service Portal provides a centralized
+                platform where users can easily find the required documents,
+                eligibility criteria, fees, and other important information
+                related to certificates and government schemes.
+            </p>
+        </div>
+
+        <div class="service-card">
+            <h3>Features</h3>
+            <ul>
+                <li>✔ Search for services</li>
+                <li>✔ Certificate information</li>
+                <li>✔ Government schemes details</li>
+                <li>✔ FAQ section</li>
+                <li>✔ Responsive design</li>
+                <li>✔ User-friendly interface</li>
+            </ul>
+        </div>
+
+        <div class="service-card">
+            <h3>Technologies Used</h3>
+            <ul>
+                <li>HTML</li>
+                <li>CSS</li>
+                <li>JavaScript</li>
+            </ul>
+        </div>
+
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>© 2026 Smart Citizen Service Portal. All Rights Reserved.</p>
+    </footer>
+    <script>
+        const toggleBtn = document.getElementById("theme-toggle");
+
+toggleBtn.addEventListener("click", () => {
+    document.body.classList.toggle("dark-mode");
+
+    if (document.body.classList.contains("dark-mode")) {
+        localStorage.setItem("theme", "dark");
+        toggleBtn.textContent = "☀️";
+    } else {
+        localStorage.setItem("theme", "light");
+        toggleBtn.textContent = "🌙";
+    }
+});
+
+// Save user preference
+if (localStorage.getItem("theme") === "dark") {
+    document.body.classList.add("dark-mode");
+    toggleBtn.textContent = "☀️";
+}
+    </script>
+</body>
+</html>

@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Smart Citizen Service Portal</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- Header -->
+    <header>
+    <div class="logo">
+        <h1>Smart Citizen Service Portal</h1>
+    </div>
+    <nav>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="certificates.html">Certificates</a></li>
+            <li><a href="schemes.html">Schemes</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="contact.html">Contact</a></li>
+            <li><a href="faq.html">FAQ</a></li>
+        </ul>
+        
+    </nav>
+<select id="language" onchange="changeLanguage()">
+    <option value="en">English</option>
+    <option value="te">తెలుగు</option>
+    <a id="home">Home</a>
+<a id="certificates">Certificates</a>
+<a id="schemes">Schemes</a>
+<a id="about">About</a>
+<a id="contact">Contact</a>
+
+<h1 id="title">Find Required Documents Easily</h1>
+
+        
+</select>
+        <button id="theme-toggle">🌙</button>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <h2>Find Required Documents Easily</h2>
+        <p>
+            Get details about certificates, government schemes,
+            required documents, xerox copies, and eligibility criteria.
+        </p>
+
+        <input
+            type="text"
+            id="searchInput"
+            placeholder="Search for a service..."
+            onkeyup="searchServices()"
+        >
+    </section>
+
+    <!-- Services Section -->
+    <section class="services">
+        <h2>Popular Services</h2>
+
+        <div class="service-container" id="serviceContainer">
+
+            <div class="service-card">
+                <h3>Income Certificate</h3>
+                <p>Documents required to apply.</p>
+            </div>
+
+            <div class="service-card">
+                <h3>Caste Certificate</h3>
+                <p>Know eligibility and documents.</p>
+            </div>
+
+            <div class="service-card">
+                <h3>Birth Certificate</h3>
+                <p>Application process details.</p>
+            </div>
+
+            <div class="service-card">
+                <h3>Widow Pension</h3>
+                <p>Required documents and benefits.</p>
+            </div>
+
+            <div class="service-card">
+                <h3>Old Age Pension</h3>
+                <p>Eligibility criteria and documents.</p>
+            </div>
+
+            <div class="service-card">
+                <h3>Residence Certificate</h3>
+                <p>Required xerox copies and fee.</p>
+            </div>
+            <div class="service-card">
+                <h3>PM kisan</h3>
+                <p>Required xerox copies and fee.</p>
+            </div>
+            <div class="service-card">
+                <h3>Meeseva services</h3>
+                <p>Required xerox copies and fee.</p>
+            </div>
+
+
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>© 2026 Smart Citizen Service Portal</p>
+    </footer>
+
+    <script>
+        
+        // Services Data
+const services = [
+    {
+        name: "Income Certificate",
+        documents: [
+            "Aadhaar Card",
+            "Ration Card",
+            "Passport Size Photos",
+            "Address Proof"
+        ],
+        xeroxCopies: 2,
+        fee: "₹35"
+    },
+    {
+        name: "Caste Certificate",
+        documents: [
+            "Aadhaar Card",
+            "Father's Caste Certificate",
+            "Ration Card",
+            "Passport Size Photos"
+        ],
+        xeroxCopies: 2,
+        fee: "₹35"
+    },
+    {
+        name: "Birth Certificate",
+        documents: [
+            "Hospital Record",
+            "Parent Aadhaar Cards",
+            "Address Proof"
+        ],
+        xeroxCopies: 2,
+        fee: "Varies"
+    },
+    {
+        name: "Residence Certificate",
+        documents: [
+            "Aadhaar Card",
+            "Electricity Bill",
+            "Ration Card"
+        ],
+        xeroxCopies: 2,
+        fee: "₹35"
+    },
+    {
+        name: "Widow Pension",
+        documents: [
+            "Aadhaar Card",
+            "Death Certificate of Husband",
+            "Bank Passbook",
+            "Passport Size Photos"
+        ],
+        xeroxCopies: 2,
+        fee: "Free"
+    },
+    {
+        name: "Old Age Pension",
+        documents: [
+            "Aadhaar Card",
+            "Age Proof",
+            "Bank Passbook",
+            "Passport Size Photos"
+        ],
+        xeroxCopies: 2,
+        fee: "Free"
+    },
+    {
+        name: "PM kisan",
+        documents: [
+            "Aadhaar Card",
+            "Ration card",
+            "Bank Passbook",
+            "Passport Size Photos",
+            "land proofs"
+        ],
+        xeroxCopies: 2,
+        fee: "Free"
+    },
+    {
+        name: "Meeseva services",
+        documents:[
+        "All documents are ready to submit"
+        ],
+    }
+];
+
+
+// Search Function
+function searchServices() {
+    const input = document
+        .getElementById("searchInput")
+        .value
+        .toLowerCase();
+
+    const cards = document.querySelectorAll(".service-card");
+
+    cards.forEach(card => {
+        const title = card
+            .querySelector("h3")
+            .textContent
+            .toLowerCase();
+
+        if (title.includes(input)) {
+            card.style.display = "block";
+        } else {
+            card.style.display = "none";
+        }
+    });
+}
+
+// Show Service Details
+function showServiceDetails(serviceName) {
+    const service = services.find(
+        item => item.name === serviceName
+    );
+
+    if (service) {
+        let documentList = "";
+
+        service.documents.forEach(doc => {
+            documentList += `• ${doc}\n`;
+        });
+
+        alert(
+            `Service: ${service.name}\n\n` +
+            `Required Documents:\n${documentList}\n` +
+            `Xerox Copies: ${service.xeroxCopies}\n` +
+            `Fee: ${service.fee}`
+        );
+    }
+}
+
+// Add Click Events to Cards
+document.addEventListener("DOMContentLoaded", () => {
+    const cards = document.querySelectorAll(".service-card");
+
+    cards.forEach(card => {
+        card.addEventListener("click", () => {
+            const serviceName =
+                card.querySelector("h3").textContent;
+
+            showServiceDetails(serviceName);
+        });
+    });
+});
+
+
+// Save user preferencconst toggleBtn = document.getElementById("theme-toggle");
+
+const toggleBtn = document.getElementById("theme-toggle");
+
+toggleBtn.addEventListener("click", () => {
+    document.body.classList.toggle("dark-mode");
+
+    if (document.body.classList.contains("dark-mode")) {
+        localStorage.setItem("theme", "dark");
+        toggleBtn.textContent = "☀️";
+    } else {
+        localStorage.setItem("theme", "light");
+        toggleBtn.textContent = "🌙";
+    }
+});
+
+// Save user preference
+if (localStorage.getItem("theme") === "dark") {
+    document.body.classList.add("dark-mode");
+    toggleBtn.textContent = "☀️";
+}
+const translations = {
+  en: {
+    home: "Home",
+    certificates: "Certificates",
+    schemes: "Schemes",
+    about: "About",
+    contact: "Contact",
+    faq: "FAQ",
+    title: "Find Required Documents Easily",
+    description: "Get information about certificates, government schemes, required documents, xerox copies, and eligibility criteria.",
+    search: "Search for a service...",
+    popular: "Popular Services"
+  },
+
+  te: {
+    home: "హోమ్",
+    certificates: "సర్టిఫికెట్లు",
+    schemes: "ప్రభుత్వ పథకాలు",
+    about: "మా గురించి",
+    contact: "సంప్రదించండి",
+    faq: "తరచుగా అడిగే ప్రశ్నలు",
+    title: "అవసరమైన పత్రాలను సులభంగా తెలుసుకోండి",
+    description: "సర్టిఫికెట్లు, ప్రభుత్వ పథకాలు, అవసరమైన పత్రాలు, జిరాక్స్ కాపీలు మరియు అర్హత వివరాలను పొందండి.",
+    search: "సేవ కోసం వెతకండి...",
+    popular: "ప్రసిద్ధ సేవలు"
+  }
+};
+function changeLanguage() {
+  const lang = document.getElementById("language").value;
+
+  document.getElementById("home").innerText = translations[lang].home;
+  document.getElementById("certificates").innerText = translations[lang].certificates;
+  document.getElementById("schemes").innerText = translations[lang].schemes;
+  document.getElementById("about").innerText = translations[lang].about;
+  document.getElementById("contact").innerText = translations[lang].contact;
+  document.getElementById("faq").innerText = translations[lang].faq;
+
+  document.getElementById("title").innerText = translations[lang].title;
+  document.getElementById("description").innerText = translations[lang].description;
+
+  document.getElementById("popularServices").innerText = translations[lang].popular;
+  document.getElementById("searchInput").placeholder = translations[lang].search;
+
+  document.getElementById("aboutTitle").innerText = translations[lang].aboutTitle;
+  document.getElementById("aboutText").innerText = translations[lang].aboutText;
+
+  document.getElementById("contactTitle").innerText = translations[lang].contactTitle;
+  document.getElementById("contactText").innerText = translations[lang].contactText;
+
+  document.getElementById("faqTitle").innerText = translations[lang].faqTitle;
+}
+    </script>
+
+</body>
+</html>
